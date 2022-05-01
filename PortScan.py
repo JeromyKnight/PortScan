@@ -22,7 +22,6 @@ root.wm_iconbitmap(tempFile)
 ## Delete the tempfile
 os.remove(tempFile)
 
-#root.iconbitmap(icon)
 root.title('Port Scan v1.2    (c) 2022    J.Knight')
 
 # get host ip address and remove last octet
@@ -52,8 +51,8 @@ e3 = Entry(root, width=4, bg='light gray')
 e3.pack()
 e3.insert(0,'0.1')
 
-# Define function that builds a broadcast arp-ping packet
-# Sequentially arp-ping every address in CIDR range or a single IP
+# Define function that builds a broadcast arping packet
+# Sequentially arping every address in CIDR range or a single IP
 def myClick():
     ip = e1.get()
     port = int(e2.get())
@@ -70,8 +69,10 @@ def myClick():
             hostname = socket.gethostbyaddr(str(x))
             myLabel5 = Label(root, text=f'{hostname[0]} -- IP: {x}  Port: %d' % port,)            
             myLabel5.pack()
+
         else:  
             s.close()
+        s.close()
            
     myLabel6 = Label(root, text='****Finished****')
     myLabel6.pack()
